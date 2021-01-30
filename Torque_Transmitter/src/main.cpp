@@ -8,7 +8,7 @@
 #define led 12
 RF24 radio(7,10);
 const byte addresses[][6] = {"00001", "00002"};
-boolean speed = 0;
+int speed = 0;
 boolean listening = false;
 boolean location;
 
@@ -21,22 +21,21 @@ void setup() {
 }
 
 int reciveData(){
+  int recived = 0;
   location = false;
   AdjListeningState(location);
   
   while(!radio.available());
-  radio.read(&speed, sizeof(speed));
-  return speed;
+  radio.read(&recived, sizeof(recived));
+  return recived;
 }
 
-void sendData(){
+void sendData(int hallEffect){
   location = true;
   AdjListeningState(location);
-  
-  int potValue = analogRead(A0);
-  int angleValue = map(potValue, 0,1023, 0, 180);
-  radio.write(&angleValue, sizeof(angleValue));
+  radio.write(&hallEffect, sizeof(hallEffect));
 }
+
 void AdjListeningState(char location){
   if(listening && location){ //if listening and it in in the sendin function
     radio.stopListening(); // stop listening
@@ -49,11 +48,20 @@ void AdjListeningState(char location){
   }
 }
 
+void drawSpeed(int speed){
+
+}
+
 void loop() {
+
+  int halleffect = analogRead(A3); //read value from the hall effect 
+
   delay(5);
-  sendData();
+  sendData(halleffect);
   delay(5);
-  reciveData();
+
+  speed = reciveData();
+  drawSpeed();
 }
  
 
