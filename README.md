@@ -2,4 +2,6 @@
 
 Transmitter Designed for remote
 
-Reciver Designed for longabord 
+Reciver Designed for longbord
+
+
