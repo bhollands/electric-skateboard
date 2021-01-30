@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\Torque\\Uno Test"
+		},
+		{
+			"name": "Blink",
+			"path": "..\\..\\..\\..\\Documents\\PlatformIO\\Projects\\Blink"
+		},
+		{
+			"name": "Torque_Reciver",
+			"path": ".."
+		},
+		{
+			"name": "Torque_Transmitter",
+			"path": "..\\..\\Torque_Transmitter"
+		},
+		{
+			"name": "Torque_remote",
+			"path": "..\\..\\Torque_remote"
+		},
+		{
+			"name": "radio_test_pro",
+			"path": "..\\..\\..\\..\\Documents\\PlatformIO\\Projects\\radio_test_pro"
+		}
+	],
+	"settings": {}
+}
